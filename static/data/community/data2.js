@@ -56,6 +56,9 @@ window.staticData = {
 			[ "四季花园", "65", "50", "异常"]
 		]
 	},
+	"centerTop01": {
+		"iframe": "./static/gis/community.html"
+	},
 	"center02": {
 		"title": "今日智能门禁告警趋势",
 		"xAxis": ["00","03","07","11","15","19","23"],

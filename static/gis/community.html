@@ -14,6 +14,9 @@
             margin: 0;
             font-family: "微软雅黑";
         }
+        .anchorBL {
+            display: none;
+        }
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1eGQ4jy7qr4WTMUdSbResj86BcNbUiYW"></script>
     <title>地图展示</title>
@@ -77,9 +80,9 @@
     add_overlay();
 
     var opts = {
-        width: 250, // 信息窗口宽度    
-        height: 140, // 信息窗口高度    
-        title: "群租明细" // 信息窗口标题   
+        width: 200, // 信息窗口宽度    
+        height: 220, // 信息窗口高度    
+        title: "" // 信息窗口标题   
     }
     // 创建信息窗口对象    
     // map.openInfoWindow(infoWindow,new BMap.Point(121.450633,31.258296));  
@@ -99,24 +102,25 @@
             y: 31.259002
         },
         {
-            x:  121.450633,
+            x: 121.450633,
             y: 31.258296
         }
     ]
-    var msg=["小区名称:中远两湾城东区 <br>位置:中潭路100弄102号<br>群租户数量:6<br>门牌号:201,301,401,501,202,502<br>相似度:80%",
-    "小区名称:中远两湾城东区<br>位置:中潭路100弄148号<br>群租户数量:6<br>门牌号:201,301,401,501,202,502<br>相似度:60%"
-]
+    var msg = ["小区名称 : 中远两湾城<br>门牌号码 : 102 号<br>疑似群租户 : 6 户<br>明细列表 : <br>201室 , 相似度 : 89%<br>301室 , 相似度 : 87%<br>401室 , 相似度 : 85%<br>501室 , 相似度 : 80%<br>202室 , 相似度 : 79%<br>502室 , 相似度 : 77%",
+        "小区名称 : 中远两湾城<br>门牌号码 : 102 号<br>疑似群租户 : 6 户<br>明细列表 : <br>201室 , 相似度 : 89%<br>301室 , 相似度 : 87%<br>401室 , 相似度 : 85%<br>501室 , 相似度 : 80%<br>202室 , 相似度 : 79%<br>502室 , 相似度 : 77%"
+    ]
     for (var i = 0; i < 2; i++) {
         var point = new BMap.Point(arr[i].x, arr[i].y);
         // 创建标注
         var marker = new BMap.Marker(point);
-        marker.i=i;
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        marker.i = i;
         map.addOverlay(marker); // 将标注添加到地图中
         marker.addEventListener("click", function () {
             var infoWindow = new BMap.InfoWindow(msg[this.i], opts);
             // console.log(this.i);
             map.openInfoWindow(infoWindow, new BMap.Point(obj[this.i].x, obj[this.i].y));
         });
-      
+
     }
 </script>

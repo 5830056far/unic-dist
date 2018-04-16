@@ -108,6 +108,9 @@ window.staticData = {
 			}
 		]
 	},
+	"centerTop01": {
+		"iframe": "./static/gis/fire.html"
+	},
 	"center02": {
 		"title": "告警高发小区排名",
 		"dataList": [

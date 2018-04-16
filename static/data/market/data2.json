@@ -80,6 +80,9 @@
 			[ "一号垃圾房", "14:13:09", "1020"]
 		]
 	},
+	"centerTop01": {
+		"iframe": "./static/gis/market.html"
+	},
 	"center02": {
 		"title": "共享单车违停区域排名",
 		"dataList": [

@@ -91,6 +91,9 @@ window.staticData = {
 			[ "幸福小区1号门", "11:12", "4", "", "10%", "1小时"]
 		]
 	},
+	"centerTop01": {
+		"iframe": "./static/gis/rubuss.html"
+	},
 	"center02": {
 		"title": "告警高发小区排名",
 		"dataList": [
