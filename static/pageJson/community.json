@@ -1,0 +1,83 @@
+{
+	"left0101": {
+		"title": "今日告警",
+		"desc": "次",
+		"num": -125
+	},
+	"left0102": {
+		"title1": "已部署",
+		"title2": "规划部署",
+		"desc1": "(个)",
+		"desc2": "(个)",
+		"num1": -123,
+		"num2": -123
+	},
+	"left02": {
+		"title": "30天内消防告警",
+		"desc": "总告警数",
+		"num": -123,
+		"left0202": {
+			"title": "非常住人员进出TOP3(日)",
+			"thList": [],
+			"tdList": [
+				
+			],
+			"subT": "离开人数",
+			"outList": [
+				
+			]
+		}
+	},
+	"left0301": {
+		"title": "小区车辆进出记录统计",
+		"sub01": {
+			"title": "进入车辆TOP5",
+			"tList": [],
+			"valueList": []
+		},
+		"sub02": {
+			"title": "离开车辆TOP5",
+			"tList": [],
+			"valueList": []
+		}
+	},
+	"left0302": {
+		"title": "智能门禁进入人数排名",
+		"thList": [],
+		"dataList": [
+
+		]
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"center02": {
+		"title": "智能门禁告警趋势(天)",
+		"xAxis": [],
+		"data1": []
+	},
+	"center03": {
+		"title": "进出人数趋势",
+		"xAxis": [],
+		"data1": [],
+		"data2": []
+	},
+	"right01": {
+		"title": "群租指数排名",
+		"dataList": [
+			
+		]
+	},
+	"right02": {
+		"title": "群租指数趋势",
+		"dataList": [
+			
+		]
+	},
+	"right03": {
+		"title": "小区车辆进出记录",
+		"thList": [],
+		"dataList": [
+		]
+	}
+}

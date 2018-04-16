@@ -1,0 +1,187 @@
+{
+	"left0101": {
+		"title": "当日告警数",
+		"desc": "次",
+		"num": -1404
+	},
+	"left0102": {
+		"title1": "规划部署",
+		"num1": -1223,
+		"desc1": "(个)",
+		"title2": "已部署",
+		"desc2": "(个)",
+		"num2": -1123
+	},
+	"left02": {
+		"title": "月累计告警数",
+		"desc": "总告警数",
+		"num": -136,
+		"left0202": {
+			"dataList": [
+				{
+					"icon": "market_bike.png",
+					"name": "清理次数",
+					"num": 11
+				},
+				{
+					"icon": "market_unusural_outlink.png",
+					"name": "清理次数",
+					"num": 11
+				}
+			]
+		},
+		"left0203": {
+			"title": "清理次数TOP5",
+			"dataList": [
+				{
+					"district_name": "小区一",
+					"num_alert": 11
+				}, {
+					"district_name": "小区二",
+					"num_alert": 8
+				}, {
+					"district_name": "小区三",
+					"num_alert": 8
+				}, {
+					"district_name": "小区一",
+					"num_alert": 1
+				}, {
+					"district_name": "小区一",
+					"num_alert": 6
+				}
+			]
+		}
+	},
+	"left0301": {
+		"title": "统计告警分布",
+		"title_icon": "chuanganjiance.png",
+		"dataList": [
+			{
+				"bg": "warn_bg_cyan.png",
+				"name": "共享单车违停",
+				"num": 11,
+				"icon": "red"
+			},
+			{
+				"bg": "warn_bg_cyan.png",
+				"name": "共享单车违停",
+				"num": 18,
+				"icon": "red"
+			}
+		]
+	},
+	"left0302": {
+		"title": "违规经营告警",
+		"thList": ["编号", "类型", "告警时间"],
+		"dataList": [
+			[ "一号垃圾房", "14:13:09", "1020"],
+			[ "一号垃圾房", "14:13:09", "1020"],
+			[ "一号垃圾房", "14:13:09", "1020"],
+			[ "一号垃圾房", "14:13:09", "1020"]
+		]
+	},
+	"center02": {
+		"title": "共享单车违停区域排名",
+		"dataList": [
+			{
+				"value": 11,
+				"name": "兰陵路2587弄"
+			}, {
+				"value": 60,
+				"name": "古龙路542弄"
+			}, {
+				"value": 50,
+				"name": "钦江路23号"
+			}, {
+				"value": 30,
+				"name": "虹梅路2562路"
+			}, {
+				"value": 20,
+				"name": "紫金路90号"
+			}
+		]
+	},
+	"center03": {
+		"title": "违规经营区域排名",
+		"dataList": [
+			{
+				"district_name": "星城花园1",
+				"num_alert": 11
+			},
+			{
+				"district_name": "星城花园2",
+				"num_alert": 106
+			},
+			{
+				"district_name": "星城花园3",
+				"num_alert": 66
+			},
+			{
+				"district_name": "星城花园4",
+				"num_alert": 16
+			}
+		]
+	},
+	"right01": {
+		"title": "重点区域垃圾堆放次数排名",
+		"dataList": [
+			{
+				"value": 117,
+				"name": "兰陵路2587弄"
+			}, {
+				"value": 20,
+				"name": "古龙路542弄"
+			}, {
+				"value": 30,
+				"name": "钦江路23号"
+			}, {
+				"value": 50,
+				"name": "虹梅路2562路"
+			}, {
+				"value": 70,
+				"name": "紫金路90号"
+			}
+		]
+	},
+	"right02": {
+		"dataList": [
+			{
+				"interval": "00",
+				"num_alert": 114
+			}, {
+				"interval": "01",
+				"num_alert": 6
+			}, {
+				"interval": "02",
+				"num_alert": 1
+			}, {
+				"interval": "03",
+				"num_alert": 7
+			}, {
+				"interval": "04",
+				"num_alert": 6
+			}, {
+				"interval": "05",
+				"num_alert": 7
+			}, {
+				"interval": "06",
+				"num_alert": 8
+			}, {
+				"interval": "07",
+				"num_alert": 10
+			}
+		]
+	},
+	"right03": {
+		"title": "垃圾桶清理详情",
+		"thList": ["巡更时间", "巡更路线", "巡更人员" ],
+		"dataList": [
+			["2018-2-13 8:20", "1鸿馨园一号小区", "60℃"],
+			["2018-2-13 8:20", "1鸿馨园一号小区", "60℃"],
+			["2018-2-13 8:20", "鸿馨园一号小区", "60℃"],
+			["2018-2-13 8:20", "鸿馨园一号小区", "60℃"],
+			["2018-2-13 8:20", "鸿馨园一号小区", "60℃"],
+			["2018-2-13 8:20", "鸿馨园一号小区", "60℃"]
+		]
+	}
+}

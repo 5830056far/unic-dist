@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        /* body {
+            width: 3840px;
+            height: 1080px;
+            background: url('./img/bg1.png') no-repeat left top;
+            background-size: 3840px 1080px;
+        } */
+        /* 去掉百度标志 */
+        .anchorBL {
+            display: none;
+        }
+        #allmap {
+            width: 100%;
+            height: 100%;
+            /* width: 1395px;
+            height: 600px;
+            background-color: pink;
+            position: absolute;
+            left: 1260px;
+            top: 108px; */
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1eGQ4jy7qr4WTMUdSbResj86BcNbUiYW"></script>
+    <title>地图展示</title>
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    // 设置百度地图的色调
+    map.setMapStyle({
+        // style:"midnight"
+        style: 'light'
+    });
+    // 设置地图图标
+    var point = new BMap.Point(121.451958,31.258861);
+    map.centerAndZoom(point,18); // 初始化地图,设置中心点坐标和地图级别
+    map.setCurrentCity("上海"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+    //随机向地图添加标注的方法
+    function addMarker(point) {
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+    }
+    //随机向地图添加25个标注
+    var bounds = map.getBounds();
+    var sw = bounds.getSouthWest();
+    var ne = bounds.getNorthEast();
+    var lngSpan = Math.abs(sw.lng - ne.lng);
+    var latSpan = Math.abs(ne.lat - sw.lat);
+    for (var i = 0; i < 10; i++) {
+        var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.9), ne.lat - latSpan * (Math.random() * 0.7));
+        //自定义图标
+        // var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+        var marker2 = new BMap.Marker(point
+            // {icon:myIcon}
+        ); 
+        map.addOverlay(marker2);
+        // addMarker(point);
+        // var label = new BMap.Label("我是文字标注哦",{offset:new BMap.Size(20,-10)});
+        // marker2.setLabel(label);
+        
+    }
+    //随机产生6个图标
+    var bounds2 = map.getBounds();
+    var sw2 = bounds2.getSouthWest();
+    var ne2 = bounds2.getNorthEast();
+    var lngSpan2 = Math.abs(sw2.lng - ne2.lng);
+    var latSpan2 = Math.abs(ne2.lat - sw2.lat);
+    for (var i = 0; i < 8; i++) {
+        var point = new BMap.Point(sw2.lng + lngSpan2 * (Math.random() * 0.7), ne2.lat - latSpan2 * (Math.random() *
+            0.7));
+        //自定义图标
+
+        // addMarker(point);
+        //让图标跳跃
+        // 换个自定义icon
+        var myIcon = new BMap.Icon("./img/warns.png", new BMap.Size(200, 200));
+        // 创建标注
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker); // 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        //121.491068,31.244195
+        //121.491068,31.244195
+        //添加鼠标点击事件
+        //展示label
+        // var label = new BMap.Label("我是文字标注哦",{offset:new BMap.Size(20,-10)});
+        // label.setStyle({
+		// 	 color : "red",
+		// 	 fontSize : "12px",
+		// 	 height : "20px",
+		// 	 lineHeight : "20px",
+		// 	 fontFamily:"微软雅黑"
+		//  });
+	    //  marker.setLabel(label);
+
+    }
+
+    
+   
+    //给指定的点添加事件
+    // var marker3 = new BMap.Marker(new BMap.Point(121.463858, 31.2371)); // 创建点
+	// myP1.addEventListener("click",attribute);
+	// // map.addOverlay(marker);    //增加点
+	
+	// function attribute(){
+	// 	// var p = marker.getPosition();  //获取marker的位置
+    //     alert("marker的位置是" + p.lng + "," + p.lat);    
+    //     // run();
+    // }
+  
+    // setTimeout(function () {
+    //     run();
+    // }, 1500);
+    var myIcon1 = new BMap.Icon("./img/males.png", new BMap.Size(100, 100));
+    var marker3 = new BMap.Marker(new BMap.Point(121.463858, 31.2373), {icon:myIcon1});  // 创建标注
+    marker3.addEventListener("click",fun);
+    map.addOverlay(marker3);    
+    function fun(){
+		// var p = marker.getPosition();  //获取marker的位置
+        // alert("marker的位置是" + p.lng + "," + p.lat);  
+        // 行驶轨迹
+    // 121.464976,31.235609    121.425891,31.228054
+    var myP1 = new BMap.Point(121.463858, 31.2371); //起点
+    var myP2 = new BMap.Point(121.464253, 31.235816); //终点
+    var myIcon = new BMap.Icon("./img/males.png", new BMap.Size(100, 100), { //人物图片
+        //offset: new BMap.Size(0, -5),    //相当于CSS精灵
+        imageOffset: new BMap.Size(0, 0) //图片的偏移量。为了是图片底部中心对准坐标点。
+    });
+    var driving2 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    }); //驾车实例
+    driving2.search(myP1, myP2); //显示一条公交线路
+    window.run = function () {
+        var driving = new BMap.DrivingRoute(map); //驾车实例
+        driving.search(myP1, myP2);
+        driving.setSearchCompleteCallback(function () {
+            var pts = driving.getResults().getPlan(0).getRoute(0).getPath(); //通过驾车实例，获得一系列点的数组
+            var paths = pts.length; //获得有几个点
+
+            var carMk = new BMap.Marker(pts[0], {
+                icon: myIcon
+            });
+            map.addOverlay(carMk);
+            i = 0;
+
+            function resetMkPoint(i) {
+                carMk.setPosition(pts[i]);
+                if (i < paths) {
+                    setTimeout(function () {
+                        i++;
+                        resetMkPoint(i);
+                    }, 500);
+                }
+            }
+
+            setTimeout(function () {
+                resetMkPoint(10);
+            }, 500)
+
+        });
+    }
+       setTimeout(function(){
+        run(); 
+       },500) 
+
+        var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+	walking.search("上海市爱国小学", "南京西路972弄");
+    }  
+    
+  
+</script>

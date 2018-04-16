@@ -1,0 +1,78 @@
+
+{
+	"left0101": {
+		"title": "传感器部署",
+		"desc": "(户)",
+		"num": 123
+	},
+	"left0102": {
+		"title1": "规划部署",
+		"desc1": "(户)",
+		"title2": "已部署",
+		"desc2": "(户)",
+		"num1": 123,
+		"num2": 222
+	},
+	"warnSum": {
+		"title": "月累计告警数",
+		"desc": "总告警数",
+		"num": 111
+	},
+	"tableT01": {
+		"thList": [],
+		"dataList": []
+	},
+	"warnToday": {
+		"title": "当日告警",
+		"descWarn": "告警",
+		"descNor": "正常",
+		"thList": [  ],
+		"data": {
+			"num_alert_door": "--",
+			"num_alert_combustible_gas": "--",
+			"num_alert_fire": "--",
+			"num_alert_fall": "--"
+		}
+	},
+	"tableOrderDay": {
+		"title": "日告警排名",
+		"thList": [],
+		"tdList": []
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"warnAreaBar": {
+		"title": "告警高发小区排名",
+		"dataList": [
+			
+		]
+	},
+	"warnAreaBarh": {
+		"title": "出区域告警排名",
+		"dataList": [
+			
+		]
+	},
+	"warnOccurArea": {
+		"title": "24小时告警趋势:",
+		"dataList": [
+			
+		]
+	},
+	"warnOccurTime": {
+		"title": "告警高发时段",
+		"dataList": [
+			
+		]
+	},
+	"tableT02": {
+		"thList": [],
+		"dataList": [
+			
+		]
+	},
+	"right_3": {
+		"title": "出区域告警详情"
+	}
+}

@@ -1,0 +1,81 @@
+
+{
+	"left0101": {
+		"title": "今日告警",
+		"desc": "次",
+		"num": -125
+	},
+	"left0102": {
+		"title1": "已部署",
+		"title2": "规划部署",
+		"desc1": "(个)",
+		"desc2": "(个)",
+		"num1": -123,
+		"num2": -123
+	},
+	"left02": {
+		"title": "30天内消防告警",
+		"desc": "总告警数",
+		"num": -123,
+		"thList": [],
+		"tdList": [
+			
+		]
+	},
+	"left0301": {
+		"title": "当日告警",
+		"list": [
+			
+		]
+	},
+	"left0302": {
+		"title": "日告警排名",
+		"thList": [],
+		"tdList": [
+			
+		]
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"center02": {
+		"title": "告警高发小区排名：",
+		"dataList": [
+			
+		]
+	},
+	"center03": {
+		"title": "传感器设备分类",
+		"dataList": [
+			
+		]
+	},
+	"right01": {
+		"title": "消防通道占用时长排名",
+		"thList": [ ],
+		"tdList": [
+			
+		]
+	},
+	"right02": {
+		"title": "告警高发时段",
+		"dataList": [
+			
+		]
+	},
+	"right03": {
+		"title": "消防栓消防泵告警",
+		"list": [
+			{
+				"power": "--%",
+				"drain": "--%",
+				"dall": "--%"
+			},
+			{
+				"power": "--%",
+				"drain": "--%",
+				"dall": "--%"
+			}
+		]
+	}
+}

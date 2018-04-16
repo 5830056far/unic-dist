@@ -1,0 +1,77 @@
+{
+	"left0101": {
+		"title": "今日告警",
+		"desc": "次",
+		"num": -125
+	},
+	"left0102": {
+		"title1": "规划部署",
+		"num1": -1223,
+		"desc1": "(个)",
+		"title2": "已部署",
+		"desc2": "(个)",
+		"num2": -1223
+	},
+	"left02": {
+		"title": "人流量告警",
+		"desc1": "今日告警数",
+		"num1": -1356,
+		"desc2": "月累计告警数",
+		"num2": -2356,
+		"unit": "次"
+	},
+	"left03": {
+		"title": "重点区域人流量告警",
+		"dataList": [
+			
+		]
+	},
+	"left04": {
+		"title": "重点区域人流量历史趋势",
+		"name1": "学校",
+		"name2": "地铁",
+		"dataList": [
+			
+		]
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"center02": {
+		"title": "主要路面、地铁口视频监控",
+		"img": "food-view.png"
+	},
+	"center03": {
+		"title": "",
+		"dataList": [
+			
+		]
+	},
+	"right01": {
+		"title": "重点区域人流量排名",
+		"thList": [ ],
+		"tdList": [
+			
+		]
+	},
+	"right02": {
+		"title": "商场人流历史趋势图",
+		"name1": "1月",
+		"name2": "2月",
+		"dataList": [
+			
+		]
+	},
+	"right03": {
+		"title": "告警频繁TOP5街道",
+		"dataList": [
+			
+		]
+	},
+	"right04": {
+		"title": "公园24小时人流量趋势",
+		"dataList": [
+			
+		]
+	}
+}

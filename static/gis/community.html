@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body,
+        html,
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1eGQ4jy7qr4WTMUdSbResj86BcNbUiYW"></script>
+    <title>地图展示</title>
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    map.centerAndZoom(new BMap.Point(121.451958, 31.258861), 25); // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    // map.addControl(new BMap.MapTypeControl({
+    // 	mapTypes:[
+    //         BMAP_NORMAL_MAP,
+    //         BMAP_HYBRID_MAP
+    //     ]}));	  
+    map.setCurrentCity("上海"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+    map.addEventListener("click", function (e) {
+        console.log(e.point.lng + "," + e.point.lat);
+    });
+
+    var polygon = new BMap.Polygon([
+        new BMap.Point(121.451051, 31.25882),
+        new BMap.Point(121.451307, 31.258624),
+        new BMap.Point(121.451226, 31.258222),
+        new BMap.Point(121.450404, 31.257883),
+        new BMap.Point(121.450072, 31.258095),
+        new BMap.Point(121.450134, 31.258375),
+        new BMap.Point(121.450687, 31.258654)
+    ], {
+        strokeColor: "red",
+        strokeWeight: 2,
+        strokeOpacity: 0.5,
+        fillColor: ""
+    }); //创建多边形
+
+    var polygon2 = new BMap.Polygon([
+        new BMap.Point(121.450435, 31.25943),
+        new BMap.Point(121.450229, 31.259179),
+        new BMap.Point(121.449555, 31.258782),
+        new BMap.Point(121.44964, 31.258585),
+        new BMap.Point(121.449977, 31.258543),
+        new BMap.Point(121.45062, 31.258948),
+        new BMap.Point(121.450898, 31.259249),
+    ], {
+        strokeColor: "red",
+        strokeWeight: 2,
+        strokeOpacity: 0.5,
+        fillColor: ""
+    });
+
+    function add_overlay() {
+        map.addOverlay(polygon); //增加多边形
+        map.addOverlay(polygon2);
+    }
+    add_overlay();
+
+    var opts = {
+        width: 250, // 信息窗口宽度    
+        height: 140, // 信息窗口高度    
+        title: "群租明细" // 信息窗口标题   
+    }
+    // 创建信息窗口对象    
+    // map.openInfoWindow(infoWindow,new BMap.Point(121.450633,31.258296));  
+
+    var arr = [{
+            x: 121.450301,
+            y: 31.258975
+        },
+        {
+            x: 121.450696,
+            y: 31.258311
+        }
+    ]
+    //121.450287,31.259002  121.450633,31.258296
+    var obj = [{
+            x: 121.450287,
+            y: 31.259002
+        },
+        {
+            x:  121.450633,
+            y: 31.258296
+        }
+    ]
+    var msg=["小区名称:中远两湾城东区 <br>位置:中潭路100弄102号<br>群租户数量:6<br>门牌号:201,301,401,501,202,502<br>相似度:80%",
+    "小区名称:中远两湾城东区<br>位置:中潭路100弄148号<br>群租户数量:6<br>门牌号:201,301,401,501,202,502<br>相似度:60%"
+]
+    for (var i = 0; i < 2; i++) {
+        var point = new BMap.Point(arr[i].x, arr[i].y);
+        // 创建标注
+        var marker = new BMap.Marker(point);
+        marker.i=i;
+        map.addOverlay(marker); // 将标注添加到地图中
+        marker.addEventListener("click", function () {
+            var infoWindow = new BMap.InfoWindow(msg[this.i], opts);
+            // console.log(this.i);
+            map.openInfoWindow(infoWindow, new BMap.Point(obj[this.i].x, obj[this.i].y));
+        });
+      
+    }
+</script>

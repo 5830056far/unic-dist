@@ -1,0 +1,69 @@
+{
+	"left0101": {
+		"title": "今日告警",
+		"desc": "次",
+		"num": -125
+	},
+	"left0102": {
+		"title1": "已部署",
+		"title2": "规划部署",
+		"desc1": "(个)",
+		"desc2": "(个)",
+		"num1": -123,
+		"num2": -123
+	},
+	"left02": {
+		"title": "30天内消防告警",
+		"desc": "总告警数",
+		"num": -123,
+		"left0202": {
+			"title": "商户告警",
+      "data1": {
+        "name": "老丰阁食品加工",
+        "desc1": "温度123次",
+        "desc2": "湿度123次"
+      },
+      "data2": {
+        "name": "街道餐厅总数",
+        "num": "91",
+        "desc": "个"
+      }
+		}
+	},
+	"left03": {
+		"title": "传感器告警",
+		"dataList": [
+			
+		]
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"center01":{
+		"title": "加工场地视频监控",
+		"pic": "food-view.png"
+	},
+	"center02": {
+		"picList": [
+
+		]
+	},
+	"right01": {
+		"title": "告警高发时段",
+		"dataList": [
+			
+		]
+	},
+	"right02": {
+		"title": "告警频繁TOP8",
+		"xList": [],
+		"dataList": [ ]
+	},
+	"right03": {
+		"title": "传感器详情",
+		"thList": [],
+		"tdList": [
+			
+		]
+	}
+}

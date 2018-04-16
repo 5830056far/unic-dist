@@ -1,0 +1,171 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>模拟客户端</title><style>body{width:100%;height:100%;margin:0;padding:0}</style></head><body><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="js/dlbsdk.js"></script><script>/***
+          * ：appid：字符串类型   账号id 默认测试账号 88888888
+          *   style: 字符串类型  返回的iframe 样式
+          *   默认样式:
+              `
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              border: none;
+              margin: 0px;
+              padding: 0px;
+              `
+              ispolling:boolean类型  是否轮询刷新数据  默认值true
+              pollingtime:number 类型   轮询刷新数据间隔时间  默认3000毫秒
+
+
+              默认使用方法:
+              1：引入dlbsdk.js  文件
+              2: 调用dlbsdk.load初始化函数
+              let html=dlbsdk.config({
+                 appid:"88888888",
+                 style:"",
+                 ispolling:true,
+                 pollingtime:3000,
+                 success:function (html) {
+                      初始化成功后，返回一个iframe对象，调用js函数追加到dome上即可
+                      $("body").append(html);
+                 }
+             });
+
+              3：声明的函数都绑定到全局windos对象上
+              data:字符串json格式数据
+              (1):点击楼层按钮统一回调此函数
+              function dlb_click_sysicon(data) {
+                 data=JSON.parse(data);
+                 dlbsdk.post(test_json.loucengs[data.lc]);
+              }
+              data:字符串json格式数据
+              (2):点击楼层对应的设备按钮调用此回调函数
+              function dlb_click_louclick(data) {
+                 data=JSON.parse(data);
+                 dlbsdk.post(test_json.loucengs[data.lc]);
+             }
+              (3):首页查询所以设备
+              function check_louceng_warning(data) {
+                 dlbsdk.post(concat(test_json.loucengs['1f'].concat(test_json.loucengs['2f']).concat(test_json.loucengs['3f'])));
+             }
+          */
+         var test_json={
+             loucengs:{
+                 "1f":[
+                 {
+                     lc:"1f",
+                     start:1,
+                     code:"sbtk",
+                     loucodename:'一楼房间',
+                     loumenage:"房间介绍信",
+                     loutext:"描述信息",
+                     concentration:97,
+                     icontype:"vide",
+                 }
+             ],
+                 "2f":[
+                     {
+                         lc:"2f",
+                         start:3,
+                         code:"B222",
+                         loucodename:'二楼房间',
+                         loumenage:"房间介绍信",
+                         loutext:"描述信息",
+                         concentration:97,
+                         icontype:"vide",
+                     }
+                 ],
+                 "3f":[
+                     {
+                         lc:"3f",
+                         start:3,
+                         code:"yjs1",
+                         loucodename:'三楼房间',
+                         loumenage:"房间介绍信",
+                         loutext:"描述信息",
+                         concentration:97,
+                         icontype:"vide",
+                     }
+                 ],
+         }
+         }
+         let html=dlbsdk.config({
+             appid:"88888888",
+             ispolling:true,
+             pollingtime:3000,
+             success:function (html) {
+                 $("body").append(html);
+             }
+         });
+         function dlb_click_sysicon(data) {
+             data=JSON.parse(data);
+             dlbsdk.post({
+                     eventtype:"dlb_click_sysicon",
+                     data:test_json.loucengs[data.lc]
+                 }
+             );
+         }
+         function dlb_click_louclick(data) {
+             data=JSON.parse(data);
+             dlbsdk.post({
+                     eventtype:"dlb_click_louclick",
+                     data:test_json.loucengs[data.lc]
+                 　　}
+                 　);
+         }
+         function check_louceng_warning(data) {
+             dlbsdk.post({
+                 eventtype:"check_louceng_warning",
+                 data:test_json.loucengs['1f'].concat(test_json.loucengs['2f']).concat(test_json.loucengs['3f'])
+             });
+         }
+         /***
+          * 默认测试数据格式 及其说明
+         var test_json={
+              当前楼层可使用房间编号
+              1楼层:   "sbtk","ceng1","ql","B117"
+              1楼层:   "B222","sbtk","nbyl","wgb","B207","B206","ceng3"
+              3楼层:   "yjs1","yjs01A","yjs01B","B326","yyl01","wttz","hjyt","yyl","ggjcyl","ceng4","yjs01","yjs2"
+             loucengs:{
+                 "all":[
+                       {
+                             start:1,     //设备状态  1：损坏  2：待修  3：正常
+                             code:"sbtk", //设备编号
+                             loucodename:'房间名称1', //房间名称
+                             loumenage:"房间介绍信", //房间详细信息
+                             loutext:"描述信息",   //房间简介
+                             concentration:97,  //如果为烟雾报警设备  此处数据应该为大于0的整数   负责填写-1 即可
+                         }
+                 ],
+                 "1f":[
+                     {
+                         start:1,     //设备状态  1：损坏  2：待修  3：正常
+                         code:"sbtk", //设备编号
+                         loucodename:'房间名称1', //房间名称
+                         loumenage:"房间介绍信", //房间详细信息
+                         loutext:"描述信息",   //房间简介
+                         concentration:97,  //如果为烟雾报警设备  此处数据应该为大于0的整数   负责填写-1 即可
+                     }
+                 ],
+                 "2f":[
+                     {
+                         start:1,     //设备状态  1：损坏  2：待修  3：正常
+                         code:"sbtk", //设备编号
+                         loucodename:'房间名称1', //房间名称
+                         loumenage:"房间介绍信", //房间详细信息
+                         loutext:"描述信息",   //房间简介
+                         concentration:97,  //如果为烟雾报警设备  此处数据应该为大于0的整数   负责填写-1 即可
+                     }
+                 ],
+                 "3f":[
+                     {
+                         start:1,     //设备状态  1：损坏  2：待修  3：正常
+                         code:"sbtk", //设备编号
+                         loucodename:'房间名称1', //房间名称
+                         loumenage:"房间介绍信", //房间详细信息
+                         loutext:"描述信息",   //房间简介
+                         concentration:97,  //如果为烟雾报警设备  此处数据应该为大于0的整数   负责填写-1 即可
+                     }
+                 ],
+             }
+         }
+          */</script></body></html>

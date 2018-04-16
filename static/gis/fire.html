@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+       	body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+           #allmap{width:100%;height:100%;}
+           p{margin-left:5px; font-size:14px;}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1eGQ4jy7qr4WTMUdSbResj86BcNbUiYW"></script>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <title>给多个点添加信息窗口</title>
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+    // 百度地图API功能	
+    map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(121.463079, 31.234499), 15);
+    var data_info = [
+        [121.46212, 31.234588, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/13  11：50"],
+        [121.450273, 31.238728, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/13  11：30"],
+        [121.454756, 31.235381, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/12  11：40"],
+        [121.464461, 31.248218, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/12  11：40"],
+        [121.481302, 31.235157, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/12  11：40"],
+        [121.467027, 31.219947, "设备类型：消防泵<br>当前状态：正常<br>采集数据时间：2018/4/12  11：40"]
+    ];
+    var data = [
+        [121.472569,31.237094, "设备类型：消防泵<br>当前状态：告警<br>采集数据时间：2018/4/13  11：50"],
+        [121.460366,31.241266, "设备类型：消防泵<br>当前状态：告警<br>采集数据时间：2018/4/13  11：30"],
+        [121.455917,31.237435, "设备类型：消防泵<br>当前状态：告警<br>采集数据时间：2018/4/12  11：40"]
+    ];
+    var opts = {
+        width: 200, // 信息窗口宽度
+        height: 60, // 信息窗口高度
+        // title : "信息窗口" , // 信息窗口标题
+        enableMessage: true //设置允许信息窗发送短息
+    };
+    for (var i = 0; i < data_info.length; i++) {
+        var myIcon = new BMap.Icon("./img/firegreen.png", new BMap.Size(30, 30));
+        var marker = new BMap.Marker(new BMap.Point(data_info[i][0], data_info[i][1]),
+        {
+            icon: myIcon
+        }); // 创建标注
+        var content = data_info[i][2];
+        map.addOverlay(marker); // 将标注添加到地图中
+        addClickHandler(content, marker);
+    }
+    for (var i = 0; i < data.length; i++) {
+        var myIcon1 = new BMap.Icon("./img/firered.png", new BMap.Size(30, 30));
+        var marker2 = new BMap.Marker(new BMap.Point(data[i][0], data[i][1]), {
+            icon: myIcon1
+        }); // 创建标注
+        marker2.setAnimation(BMAP_ANIMATION_BOUNCE);
+        var content = data[i][2];
+        map.addOverlay(marker2); // 将标注添加到地图中
+        addClickHandler(content, marker2);
+    }
+
+    function addClickHandler(content, marker) {
+        marker.addEventListener("click", function (e) {
+            openInfo(content, e)
+        });
+    }
+
+    function openInfo(content, e) {
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMap.InfoWindow(content, opts); // 创建信息窗口对象 
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+    }
+</script>

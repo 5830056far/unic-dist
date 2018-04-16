@@ -1,0 +1,83 @@
+
+{
+	"left0101": {
+		"title": "当日告警数",
+		"desc": "次",
+		"num": "-404"
+	},
+	"left0102": {
+		"title1": "规划部署",
+		"num1": "-223",
+		"desc1": "(个)",
+		"title2": "已部署",
+		"desc2": "(个)",
+		"num2": "-123"
+	},
+	"left02": {
+		"title": "月累计告警数",
+		"desc": "总告警数",
+		"num": "-1356",
+		"left0202": {
+			"dataList": [
+			]
+		},
+		"left0203": {
+			"title": "清理次数TOP5",
+			"dataList": [
+			]
+		}
+	},
+	"left0301": {
+		"title": "异常告警",
+		"dataList": [
+
+		]
+	},
+	"left0302": {
+		"title": "河流湖泊告警详情",
+		"thList": ["编号", "类型", "告警时间"],
+		"dataList": [
+		]
+	},
+	"centerTop01": {
+		"iframe": "./static/gis/test.html"
+	},
+	"center02": {
+		"title": "小区二次供水水质告警排名",
+		"dataList": [
+		]
+	},
+	"center03": {
+		"title": "河流、湖泊水质告警排名",
+		"dataList": [
+		]
+	},
+	"right01": {
+		"title": "河流、湖泊监测指标排名",
+		"dataList": [
+		]
+	},
+	"right02": {
+		"title": "告警高发时段",
+		"dataList": [
+
+		],
+		"outOpt": {
+			"grid": {
+				"top": "0%",
+				"bottom": "10%",
+				"left": "0%",
+				"right": "0%"
+			},
+			"yAxis": {
+				"show": false
+			}
+		}
+	},
+	"right03": {
+		"title": "小区水箱清理详情",
+		"thList": [],
+		"dataList": [
+		]
+	}
+}

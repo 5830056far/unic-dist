@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        /* body {
+            width: 3840px;
+            height: 1080px;
+            background: url('./img/bg1.png') no-repeat left top;
+            background-size: 3840px 1080px;
+        } */
+        /* 去掉百度标志 */
+        .anchorBL {
+            display: none;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        #allmap {
+            width: 100%;
+            height: 100%;
+            /* background-color: pink;
+            position: absolute;
+            left: 1260px;
+            top: 108px; */
+        }
+    </style>
+    <!-- <script src="./js/jquery-3.3.1.min.js"></script> -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=1eGQ4jy7qr4WTMUdSbResj86BcNbUiYW"></script>
+    <title>地图展示垃圾清理路线</title>
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    // 设置百度地图的色调
+    map.setMapStyle({
+        // style:"midnight"
+        style: 'light'
+    });
+    // 设置地图图标
+    var point = new BMap.Point(121.428572,31.229427);
+    map.centerAndZoom(point, 18); // 初始化地图,设置中心点坐标和地图级别
+    map.setCurrentCity("上海"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+    //随机向地图添加标注的方法
+    function addMarker(point) {
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+    }
+    //随机向地图添加25个标注
+    // var bounds = map.getBounds();
+    // var sw = bounds.getSouthWest();
+    // var ne = bounds.getNorthEast();
+    // var lngSpan = Math.abs(sw.lng - ne.lng);
+    // var latSpan = Math.abs(ne.lat - sw.lat);121.43106, 31.231681  121.433046, 31.231573
+    var arr1 =[
+        {x:121.431223,y:31.232046},
+        {x:121.430490,y:31.230787},
+        {x:121.429654,y:31.229722},
+        {x:121.433411,y:31.230088},
+        {x:121.43106,y:31.231681},
+        {x:121.433046, y:31.231573}
+    ]
+    for (var i = 0; i < 6; i++) {
+        var point = new BMap.Point(arr1[i].x,arr1[i].y);
+        //自定义图标
+        var myIcon = new BMap.Icon("./img/green.png", new BMap.Size(300,157));
+        var marker2 = new BMap.Marker(point,
+            {icon:myIcon}
+        ); 
+        map.addOverlay(marker2);
+        // addMarker(point);
+        var label = new BMap.Label("满溢度：65%",{offset:new BMap.Size(20,-10)});
+        marker2.setLabel(label);
+    }
+ 
+    var arr =[
+        {x:  121.431267,y:31.232021},
+        {x:121.430443,y:31.230759},
+        {x:121.429688,y:31.229787},
+        {x:121.433414,y:31.230021}
+    ]
+   
+    for (var i = 0; i < 4; i++) {
+        // var point = new BMap.Point(sw2.lng + lngSpan2 * (Math.random() * 0.8), ne2.lat - latSpan2 * (Math.random() *
+        //     0.8));
+        //自定义图标
+        var point = new BMap.Point(arr[i].x,arr[i].y);
+        // addMarker(point);
+        //让图标跳跃
+        // 换个自定义icon
+        var myIcon = new BMap.Icon("./img/red.png", new BMap.Size(50, 50));
+        // 创建标注
+        var marker = new BMap.Marker(point,
+        {icon:myIcon});
+        map.addOverlay(marker); // 将标注添加到地图中
+        // addMarker(point);
+        var label = new BMap.Label("满溢度：100%",{offset:new BMap.Size(20,-10)});
+        marker.setLabel(label);
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+        //121.491068,31.244195
+        //121.491068,31.244195
+        //添加鼠标点击事件
+        //展示label
+        // var label = new BMap.Label("我是文字标注哦",{offset:new BMap.Size(20,-10)});
+        // label.setStyle({
+		// 	 color : "red",
+		// 	 fontSize : "12px",
+		// 	 height : "20px",
+		// 	 lineHeight : "20px",
+		// 	 fontFamily:"微软雅黑"
+		//  });
+	    //  marker.setLabel(label);
+
+    }
+
+    
+   
+    //给指定的点添加事件
+    // var marker3 = new BMap.Marker(new BMap.Point(121.463858, 31.2371)); // 创建点
+	// myP1.addEventListener("click",attribute);
+	// // map.addOverlay(marker);    //增加点
+	
+	// function attribute(){
+	// 	// var p = marker.getPosition();  //获取marker的位置
+    //     alert("marker的位置是" + p.lng + "," + p.lat);    
+    //     // run();
+    // }
+  
+    // setTimeout(function () {
+    //     run();
+    // }, 1500);
+    //行走的人
+    var opts = {
+	  width : 200,     // 信息窗口宽度
+	  height: 100,     // 信息窗口高度
+	  title : "海底捞王府井店" , // 信息窗口标题
+	  enableMessage:true,//设置允许信息窗发送短息
+	}
+	var infoWindow = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", opts);  // 创建信息窗口对象 
+	
+    var myIcon1 = new BMap.Icon("./img/truk.png", new BMap.Size(50, 50));
+    var marker3 = new BMap.Marker(new BMap.Point(121.429661, 31.228752), {icon:myIcon1});  // 创建标注
+    // marker3.addEventListener("click", function(){          
+	// 	map.openInfoWindow(infoWindow,new BMap.Point(121.429661, 31.228752)); //开启信息窗口
+	// });
+    marker3.addEventListener("click",fun);
+    map.addOverlay(marker3);    
+    function fun(){
+		// var p = marker.getPosition();  //获取marker的位置
+        // alert("marker的位置是" + p.lng + "," + p.lat);  
+        // 行驶轨迹
+    // 121.464976,31.235609    121.425891,31.228054
+    //---------------行驶轨迹---------------------------
+    var myP1 = new BMap.Point(121.42941, 31.228953); //起点
+    var myP2 = new BMap.Point(121.433127,31.230079); //终点
+    var myIcon = new BMap.Icon("./img/truk.png", new BMap.Size(100, 100), { //人物图片
+        //offset: new BMap.Size(0, -5),    //相当于CSS精灵
+        imageOffset: new BMap.Size(0, 0) //图片的偏移量。为了是图片底部中心对准坐标点。
+    });
+    var driving2 = new BMap.DrivingRoute(map, {
+        renderOptions: {
+            map: map,
+            autoViewport: true
+        }
+    }); //驾车实例
+    driving2.search(myP1, myP2); //显示一条公交线路
+    window.run = function () {
+        var driving = new BMap.DrivingRoute(map); //驾车实例
+        driving.search(myP1, myP2);
+        driving.setSearchCompleteCallback(function () {
+            var pts = driving.getResults().getPlan(0).getRoute(0).getPath(); //通过驾车实例，获得一系列点的数组
+            var paths = pts.length; //获得有几个点
+
+            var carMk = new BMap.Marker(pts[0]);
+            map.addOverlay(carMk);
+            i = 0;
+
+            function resetMkPoint(i) {
+                carMk.setPosition(pts[i]);
+                if (i < paths) {
+                    setTimeout(function () {
+                        i++;
+                        resetMkPoint(i);
+                    }, 100);
+                }
+            }
+
+            setTimeout(function () {
+                resetMkPoint(1);
+            }, 100)
+
+        });
+    }
+       setTimeout(function(){
+        run(); 
+       },500) 
+        
+        // var walking = new BMap.WalkingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+        // walking.search("上海长宁区纤体美容", "上海市长宁路380弄3号");
+        //------步行轨迹-----121.387616,31.213301   121.433127,31.230079
+        var myP3 = new BMap.Point(121.430102,31.2286); //起点
+        var myP4 = new BMap.Point(121.433127,31.230079); //终点
+        var myIcon2 = new BMap.Icon("./img/males.png", new BMap.Size(100, 100), { //人物图片
+        //offset: new BMap.Size(0, -5),    //相当于CSS精灵
+        imageOffset: new BMap.Size(0, 0) //图片的偏移量。为了是图片底部中心对准坐标点。
+    });
+    var walking = new BMap.WalkingRoute(map, 
+    {renderOptions:{map: map, autoViewport: true}}); //驾车实例
+    walking.search(myP3, myP4); //显示一条公交线路
+    // window.run1 = function () {
+    //     var driving = new BMap.WalkingRoute(map); //驾车实例
+    //     driving.search(myP3, myP4);
+    //     driving.setSearchCompleteCallback(function () {
+    //         var pts = driving.getResults().getPlan(0).getRoute(0).getPath(); //通过驾车实例，获得一系列点的数组
+    //         var paths = pts.length; //获得有几个点
+
+    //         var carMk = new BMap.Marker(pts[0], {
+    //             icon: myIcon
+    //         });
+    //         map.addOverlay(carMk);
+    //         i = 0;
+
+    //         function resetMkPoint(i) {
+    //             carMk.setPosition(pts[i]);
+    //             if (i < paths) {
+    //                 setTimeout(function () {
+    //                     i++;
+    //                     resetMkPoint(i);
+    //                 }, 100);
+    //             }
+    //         }
+
+    //         setTimeout(function () {
+    //             resetMkPoint(1);
+    //         }, 100)
+
+    //     });
+    // }
+    //    setTimeout(function(){
+    //     run1(); 
+    //    },500) 
+
+
+    }  
+    
+    //行驶轨迹
+    
+    //121.421396,31.227246  121.429632,31.228063
+    // 鼠标点击事件
+    function showInfo(e){
+		console.log(e.point.lng + ", " + e.point.lat);
+	}
+	map.addEventListener("click", showInfo);
+    
+</script>

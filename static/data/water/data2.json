@@ -1,0 +1,234 @@
+{
+	"left0101": {
+		"title": "当日告警数",
+		"desc": "次",
+		"num": -404
+	},
+	"left0102": {
+		"title1": "规划部署",
+		"num1": -223,
+		"desc1": "(个)",
+		"title2": "已部署",
+		"desc2": "(个)",
+		"num2": -123
+	},
+	"left02": {
+		"title": "月累计告警数",
+		"desc": "总告警数",
+		"num": -1356,
+		"left0202": {
+			"dataList": [
+				{
+					"icon": "Greening_gaojing1.png",
+					"name": "清理次数",
+					"num": 1233
+				},
+				{
+					"icon": "Greening_gaojing2.png",
+					"name": "清理次数",
+					"num": 1233
+				}
+			]
+		}
+	},
+	"left0301": {
+		"dataList": [
+			{
+				"img": "water_river.png",
+				"name": "河流",
+				"num": 123
+			},
+			{
+				"img": "water_river.png",
+				"name": "河流",
+				"num": 123
+			},
+			{
+				"img": "water_river.png",
+				"name": "河流",
+				"num": 123
+			},
+			{
+				"img": "water_river.png",
+				"name": "河流",
+				"num": 123
+			}
+		]
+	},
+	"left0302": {
+		"thList": [
+			"编号",
+			"类型",
+			"告警时间"
+		],
+		"dataList": [
+			[
+				"一号垃圾房",
+				"14:13:09",
+				"1020"
+			],
+			[
+				"一号垃圾房",
+				"14:13:09",
+				"1020"
+			],
+			[
+				"一号垃圾房",
+				"14:13:09",
+				"1020"
+			],
+			[
+				"一号垃圾房",
+				"14:13:09",
+				"1020"
+			]
+		]
+	},
+	"center02": {
+		"dataList": [
+			{
+				"district_name": "星城花园1",
+				"num_alert": 16
+			},
+			{
+				"district_name": "星城花园2",
+				"num_alert": 16
+			},
+			{
+				"district_name": "星城花园3",
+				"num_alert": 16
+			},
+			{
+				"district_name": "星城花园4",
+				"num_alert": 16
+			}
+		]
+	},
+	"center03": {
+		"dataList": [
+			{
+				"district_name": "星城花园1",
+				"num_alert": 116
+			},
+			{
+				"district_name": "星城花园2",
+				"num_alert": 106
+			},
+			{
+				"district_name": "星城花园3",
+				"num_alert": 66
+			},
+			{
+				"district_name": "星城花园4",
+				"num_alert": 16
+			}
+		]
+	},
+	"right01": {
+		"dataList": [
+			{
+				"district_name": "小区一",
+				"num_alert": 4
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 2
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 1
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 1
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 6
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 7
+			},
+			{
+				"district_name": "小区一",
+				"num_alert": 8
+			}
+		]
+	},
+	"right02": {
+		"dataList": [
+			{
+				"interval": "00",
+				"num_alert": 4
+			},
+			{
+				"interval": "01",
+				"num_alert": 6
+			},
+			{
+				"interval": "02",
+				"num_alert": 1
+			},
+			{
+				"interval": "03",
+				"num_alert": 7
+			},
+			{
+				"interval": "04",
+				"num_alert": 6
+			},
+			{
+				"interval": "05",
+				"num_alert": 7
+			},
+			{
+				"interval": "06",
+				"num_alert": 8
+			},
+			{
+				"interval": "07",
+				"num_alert": 10
+			}
+		]
+	},
+	"right03": {
+		"thList": [
+			"巡更时间",
+			"巡更路线",
+			"巡更人员"
+		],
+		"dataList": [
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			],
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			],
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			],
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			],
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			],
+			[
+				"2018-2-13 8:20",
+				"鸿馨园一号小区",
+				"60℃"
+			]
+		]
+	}
+}
